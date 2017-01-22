@@ -4,4 +4,5 @@ dependencies:
   pre:
       - "[ -d ~/maps ] || mkdir ~/maps"
       - wget -c --progress=dot:giga http://sd-55475.dedibox.fr/planet-161223.bin -O ~/maps/planet-161223.bin
-      - cp ~/maps/planet-161223.bin $CIRCLE_ARTIFACTS/
+      - split -b 2G ~/maps/planet-161223.bin _ 
+      - mv _* $CIRCLE_ARTIFACTS/
